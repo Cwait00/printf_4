@@ -1,8 +1,9 @@
 #include "main.h"
+#include <unistd.h>
 #include <stdarg.h>
 #include <stddef.h>
 
-void print_buffer(char buffer[], int *buff_ind);
+#define BUFF_SIZE 1024
 
 /**
  * _printf - function of a printf
@@ -39,9 +40,6 @@ int _printf(const char *format, ...)
 			precision = get_precision(format, &x, list);
 			size = get_size(format, &x);
 			++x;
-					mat, &x, list;
-			size = get_size(format, &x);
-			++x;
 			printed = handle_print(format, &x, list, buffer,
 					flags, width, precision, size);
 
@@ -60,7 +58,7 @@ int _printf(const char *format, ...)
 /**
  * print_buffer - prints the contents of the buffer
  * @buffer: Array of characters
- * @buff_ind: index that adds the next character, represents the legnth.
+ * @buff_ind: index that adds the next character, represents the length.
  */
 
 void print_buffer(char buffer[], int *buff_ind)
