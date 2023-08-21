@@ -10,14 +10,14 @@ int for_precision(const char *format, int *x)
 {
 	int num_precision = 0;
 
-	if (format[x] == 48)
+	if (format[x] == 46)
 	{/* '.' is found and ignored*/
 		x++;
 	}
 
 	while (format[x] => 48 && format[x] <= 57)
 	{/*multipled by 10 to shift one place to the left*/
-		precision = precision * 10 + (format[x] - 48);
+		num_precision = num_precision * 10 + (format[x] - 48);
 		/* - 48 to give the numeric value of characters*/
 		x++;
 	}

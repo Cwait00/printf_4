@@ -36,9 +36,9 @@ int _printf(const char *format, ...)
 		{
 			print_buffer(buffer, &buff_ind);
 			flags = get_flags(format, &x);
-			width = get_width(format, &x, list);
-			precision = get_precision(format, &x, list);
-			size = get_size(format, &x);
+			width = for_width(format, &x, list);
+			precision = for_precision(format, &x, list);
+			size = for_size(format, &x);
 			++x;
 			printed = handle_print(format, &x, list, buffer,
 					flags, width, precision, size);
