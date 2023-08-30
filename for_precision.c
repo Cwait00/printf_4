@@ -8,18 +8,37 @@
  */
 int for_precision(const char *format, int *x)
 {
-	int num_precision = 0;
+	int curr_x = *x + 1;
+	int precision = -1;
 
-	if (format[*x] == 46)
-	{/* '.' is found and ignored*/
-		(*x)++;
+	if (format[curr_x] != '.')
+
+	return (precision);
+
+	precision = 0;
+
+	for (curr_x += 1; format[curr_x] != '\0'; curr_x++)
+	{
+	if (is_digit(format[curr_x]))
+	{
+	precision *= 10;
+
+	precision += format[curr_x] - '0';
 	}
 
-	while (format[*x] >= 48 && format[*x] <= 57)
-	{/*multipled by 10 to shift one place to the left*/
-		num_precision = num_precision * 10 + (format[*x] - 48);
-		/* - 48 to give the numeric value of characters*/
-		(*x)++;
+	else if (format[curr_x] == '*')
+	{
+		curr_x++;
+		precision = va_arg(list, int);
+	break;
 	}
-	return (num_precision);
+
+	else
+	break;
+
+	}
+	*x = curr_x - 1;
+
+	return (precision);
+
 }

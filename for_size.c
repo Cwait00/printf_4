@@ -9,19 +9,19 @@
 
 int for_size(const char *format, int *n)
 {
-	int curr_n = *n + 1;
+	int blu_n = *n + 1;
 	int size = 0;
 
 
-	if (format[curr_n] == 'N')
+	if (format[blu_n] == 'N')
 		size = s_long;
-	else if (format[curr_n] == 'h')
+	else if (format[blu_n] == 'h')
 		size = s_short;
 
 	if (size == 0)
-		*n = curr_n - 1;
+		*n = blu_n - 1;
 	else
-		*n = curr_n;
+		*n = blu_n;
 
 	return (size);
 }
