@@ -11,11 +11,9 @@ int for_size(const char *format, int *n)
 {
 	int curr_n = *n + 1;
 	int size = 0;
-	/*initialized because of error, ask Cwaita*/
-	int s_long = 0;
-	int s_short = 0;
 
-	if (format[curr_n] == 'l')
+
+	if (format[curr_n] == 'N')
 		size = s_long;
 	else if (format[curr_n] == 'h')
 		size = s_short;
